@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPlus, faRocket, faChartLine, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons'
+
 
 const TabBar = styled.View`
     flexDirection:row;
     alignItems:center;
+    height:60px;
     justifyContent: space-around;
+    backgroundColor: #fff;
 `;
 
 const TabBarIcon = styled.TouchableHighlight`
@@ -16,7 +21,9 @@ const TabBarIcon = styled.TouchableHighlight`
 `;
 const TabBarIconText = styled.Text``;
 const TabBarAddIcon = styled.TouchableHighlight`
-    width:100px;
+    width:70px;
+    marginLeft:20px;
+    marginRight:20px;
     justifyContent:center;
     alignItems:center;
     height:50px;
@@ -27,15 +34,14 @@ const TabBarAddIcon = styled.TouchableHighlight`
 
 const styles = StyleSheet.create({
     onFocused: {
-        color:'red'
+        color: '#000'
     },
     notFocused: {
-        color:'#000',
+        color: '#000',
     }
 })
 
 function CustomTabBar({ state, descriptors, navigation }) {
-
 
     return (
         <TabBar>
@@ -53,22 +59,79 @@ function CustomTabBar({ state, descriptors, navigation }) {
                 }
 
                 const isFocused = state.index === index;
-                
-
-                if (route.name == 'AddTransaction') {
-                    return (
-                        <TabBarAddIcon key={index} onPress={handleTabPress}>
-                            <Text style={[styles.notFocused, isFocused?styles.onFocused:null]}>{label}</Text>
-                        </TabBarAddIcon>
-                    );
 
 
-                } else {
-                    return (
-                        <TabBarIcon key={index} onPress={handleTabPress}>
-                            <Text  style={[styles.notFocused, isFocused?styles.onFocused:null]}>{label}</Text>
-                        </TabBarIcon>
-                    );
+                switch (route.name) {
+                    case 'AddTransaction':
+                        return (
+                            <TabBarAddIcon key={index} onPress={handleTabPress} underlayColor="#FF7900">
+                                <FontAwesomeIcon icon={faPlus} size={25} color={'#FFF'} />
+                            </TabBarAddIcon>
+                        );
+                        break;
+
+                    case 'Home':
+                        return (
+
+                            <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                    <FontAwesomeIcon icon={faRocket} size={25} color={'#FF4800'} />
+                                    <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                </View>
+                            </TabBarIcon>
+
+                        );
+                        break;
+
+                    case 'Cards':
+                        return (
+                            <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                    <FontAwesomeIcon icon={faCreditCard} size={25} color={'#FF4800'} />
+                                    <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                </View>
+                            </TabBarIcon>
+
+                        );
+                        break;
+
+                        case 'History':
+                            return (
+                                <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                        <FontAwesomeIcon icon={faChartLine} size={25} color={'#FF4800'} />
+                                        <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                    </View>
+                                </TabBarIcon>
+    
+                            );
+                            break;
+
+                            case 'Profile':
+                                return (
+                                    <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                            <FontAwesomeIcon icon={faUser} size={25} color={'#FF4800'} />
+                                            <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                        </View>
+                                    </TabBarIcon>
+        
+                                );
+                                break;
+        
+    
+
+                    default:
+                        return (
+                            <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                    <FontAwesomeIcon icon={faPlus} size={25} color={'#000'} />
+                                    <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                </View>
+
+                            </TabBarIcon>
+                        );
+                        break
                 }
             })}
         </TabBar>
