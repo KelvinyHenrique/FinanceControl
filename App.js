@@ -17,7 +17,6 @@ const App = () => {
 
   return (
     <NavigationContainer theme={MyTheme}>
-      <StatusBar barStyle="light-content" />
        <MainTab/>
     </NavigationContainer>
   );

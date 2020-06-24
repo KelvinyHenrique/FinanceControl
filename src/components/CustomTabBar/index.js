@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus, faRocket, faChartLine, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
+
 const TabBar = styled.View`
     flexDirection:row;
     alignItems:center;
-    height:60px;
+    height:80px;
     justifyContent: space-around;
     backgroundColor: #fff;
 `;
@@ -28,7 +29,7 @@ const TabBarAddIcon = styled.TouchableHighlight`
     alignItems:center;
     height:50px;
     borderRadius:10px;
-    marginTop:-50px;  
+    marginTop:-40px;  
     backgroundColor:#FF4800;
 `;
 
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 })
 
 function CustomTabBar({ state, descriptors, navigation }) {
-
+    
     return (
         <TabBar>
             {state.routes.map((route, index) => {
@@ -59,13 +60,13 @@ function CustomTabBar({ state, descriptors, navigation }) {
                 }
 
                 const isFocused = state.index === index;
-
+                
 
                 switch (route.name) {
                     case 'AddTransaction':
                         return (
                             <TabBarAddIcon key={index} onPress={handleTabPress} underlayColor="#FF7900">
-                                <FontAwesomeIcon icon={faPlus} size={25} color={'#FFF'} />
+                                <FontAwesomeIcon icon={faPlus} size={27} color={'#FFF'}/>
                             </TabBarAddIcon>
                         );
                         break;
@@ -75,7 +76,7 @@ function CustomTabBar({ state, descriptors, navigation }) {
 
                             <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
                                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                    <FontAwesomeIcon icon={faRocket} size={25} color={'#FF4800'} />
+                                    <FontAwesomeIcon icon={faRocket} size={24} color={'#FF4800'} style={{margin:5}} />
                                     <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
                                 </View>
                             </TabBarIcon>
@@ -87,7 +88,7 @@ function CustomTabBar({ state, descriptors, navigation }) {
                         return (
                             <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
                                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                    <FontAwesomeIcon icon={faCreditCard} size={25} color={'#FF4800'} />
+                                    <FontAwesomeIcon icon={faCreditCard} size={24} color={'#FF4800'} style={{margin:5}} />
                                     <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
                                 </View>
                             </TabBarIcon>
@@ -95,37 +96,37 @@ function CustomTabBar({ state, descriptors, navigation }) {
                         );
                         break;
 
-                        case 'History':
-                            return (
-                                <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
-                                    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                        <FontAwesomeIcon icon={faChartLine} size={25} color={'#FF4800'} />
-                                        <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
-                                    </View>
-                                </TabBarIcon>
-    
-                            );
-                            break;
+                    case 'History':
+                        return (
+                            <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                    <FontAwesomeIcon icon={faChartLine} size={24} color={'#FF4800'} style={{margin:5}} />
+                                    <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                </View>
+                            </TabBarIcon>
 
-                            case 'Profile':
-                                return (
-                                    <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
-                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                            <FontAwesomeIcon icon={faUser} size={25} color={'#FF4800'} />
-                                            <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
-                                        </View>
-                                    </TabBarIcon>
-        
-                                );
-                                break;
-        
-    
+                        );
+                        break;
+
+                    case 'Profile':
+                        return (
+                            <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                    <FontAwesomeIcon icon={faUser} size={24} color={'#FF4800'} style={{margin:5}} />
+                                    <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
+                                </View>
+                            </TabBarIcon>
+
+                        );
+                        break;
+
+
 
                     default:
                         return (
                             <TabBarIcon key={index} onPress={handleTabPress} underlayColor="transparent">
                                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                    <FontAwesomeIcon icon={faPlus} size={25} color={'#000'} />
+                                    <FontAwesomeIcon icon={faPlus} size={24} color={'#000'} style={{margin:5}} />
                                     <Text style={[styles.notFocused, isFocused ? styles.onFocused : null]}>{label}</Text>
                                 </View>
 

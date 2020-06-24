@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StatusBar, View} from 'react-native';
 
 
 export default function Cards() {
 
     return(
-        <Text>Cards</Text>
+        <View>
+             <StatusBar barStyle="light-content"  backgroundColor={'#000'}/>
+            <Text>Cards</Text> 
+        </View>
+       
     );
 }
