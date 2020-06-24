@@ -11,11 +11,13 @@ const Tab = createBottomTabNavigator();
 
 export default function MainTab() {
 
-    return(
+    return( 
         <Tab.Navigator initialRouteName="Home" tabBar={(props)=><CustomTabBar {...props} />}>
             <Tab.Screen name="Home"  component={Home}/>
+            <Tab.Screen name="History"  component={Home}/>
             <Tab.Screen name="AddTransaction"  component={AddTransaction}/>
             <Tab.Screen name="Cards"  component={Cards}/>
+            <Tab.Screen name="Profile"  component={Cards} />
         </Tab.Navigator>
     );
 }
