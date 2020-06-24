@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Text, View, StatusBar, Button, Animated, Dimensions } from 'react-native';
+import { Text, View, StatusBar, Button, Animated, Dimensions, Easing } from 'react-native';
 import styles from './styles';
 
 const screenHeight = Math.round(Dimensions.get('window').height);
@@ -14,7 +14,8 @@ export default function Home() {
         // Will change fadeAnim value to 1 in 5 seconds
         Animated.timing(fadeAnim, {
             toValue: thirty,
-            duration: 1000,
+            duration: 1500,
+            easing: Easing.bounce,
             useNativeDriver: false
         }).start();
     };
