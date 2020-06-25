@@ -6,7 +6,7 @@ export default function Cards() {
 
     return(
         <View>
-             <StatusBar barStyle="light-content"  backgroundColor={'#000'}/>
+             <StatusBar barStyle="light-content"  backgroundColor={'#FF5400'}/>
             <Text>Cards</Text> 
         </View>
        
