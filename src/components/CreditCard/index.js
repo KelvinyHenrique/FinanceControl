@@ -8,7 +8,7 @@ import { Svg } from 'react-native-svg';
 function Profile(props) {
 
     return (
-        <View style={styles.CardBox}>
+        <TouchableOpacity style={[styles.CardBox, {backgroundColor:props.color}]} activeOpacity={0.7}>
             <View style={styles.CardTopText}>
                 <Text style={styles.CardBankText}>{props.bank}</Text>
                 <Flag style={styles.CardFlag}/>
@@ -17,7 +17,7 @@ function Profile(props) {
                 <Text style={styles.limitText}>Limite Disponível</Text>
                 <Text style={styles.limitDisponible}>R$ {props.limit}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
