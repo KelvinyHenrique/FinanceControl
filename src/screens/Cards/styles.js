@@ -34,12 +34,10 @@ export default StyleSheet.create({
         fontWeight:'bold',
         color:'#FF5400',
     },
-    scrollAlignment:{
+    contentContainer:{
         width:'100%',
-        alignItems:"center"
-    },
-    BoxCategories:{
-        width:'100%',
-        height:300,
+        alignItems:"center",
+        flexDirection:'column',
+        justifyContent:'center'
     },
 });

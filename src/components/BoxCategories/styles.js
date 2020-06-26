@@ -10,6 +10,7 @@ export default StyleSheet.create({
         borderRadius:15,
         flexDirection:'row',
         paddingLeft:10,
+        marginBottom:20
     },
     LeftContent:{
         width:'75%',
@@ -46,7 +47,7 @@ export default StyleSheet.create({
         width:'90%',
         height:10,
         borderRadius:20,
-        backgroundColor:'#d8f3dc'
+        backgroundColor:'#caf0f8'
     },
     GraphProgress:{
         height:'100%',

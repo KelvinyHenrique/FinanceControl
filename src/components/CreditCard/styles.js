@@ -5,7 +5,7 @@ export default StyleSheet.create({
     CardBox: {
         marginLeft: 10,
         marginRight: 10,
-        width: 300,
+        width: 320,
         height: 180,
         flexDirection: 'column',
         justifyContent: 'space-between',

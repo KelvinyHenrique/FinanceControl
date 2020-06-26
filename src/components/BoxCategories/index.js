@@ -21,8 +21,8 @@ function BoxCategories(props) {
                 <View style={styles.CategoriesName}>
                     <Text style={styles.TextCategoriName}>{props.name}</Text>
                     <View style={{flexDirection:'row', justifyContent:'space-between', marginTop:2}}>
-                        <Text style={{fontSize:12, fontWeight:'bold'}}>26 Transações</Text>
-                        <Text style={{fontSize:12, fontWeight:'bold'}}>10% das Despesas</Text>
+                        <Text style={{fontSize:12, fontWeight:'bold'}}>{props.qtTransactions} Transações</Text>
+                        <Text style={{fontSize:12, fontWeight:'bold'}}>{props.qtDespesas}% das Despesas</Text>
                     </View>
                 </View>
                 <View style={styles.Graph}>
