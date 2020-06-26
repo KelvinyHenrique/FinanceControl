@@ -1,34 +1,15 @@
-import React, {useState} from 'react';
-import { Text, StatusBar, View, Modal, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { Text, StatusBar, View, Modal, Platform, TextInput, ScrollView } from 'react-native';
 import Profile from '../../components/Profile';
-import { ScrollView } from 'react-native-gesture-handler';
 import Card from '../../components/CreditCard';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import styles from './styles';
+import { AnimatedGaugeProgress, GaugeProgress } from 'react-native-simple-gauge';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faWallet } from '@fortawesome/free-solid-svg-icons';
+import BoxCategories from '../../components/BoxCategories';
+
 
 export default function Cards() {
-    const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-    };
-
-    const showMode = currentMode => {
-        setShow(true);
-        setMode(currentMode);
-    };
-
-    const showDatepicker = () => {
-        showMode('date');
-    };
-
-    const showTimepicker = () => {
-        showMode('time');
-    };
-
     return (
         <View style={{ alignItems: 'center', width: '100%' }}>
             <StatusBar barStyle="dark-content" backgroundColor={'#FFF'} />
@@ -40,18 +21,36 @@ export default function Cards() {
                     <Card bank="Pag" limit="4.000,00" color="#002c47" />
                 </ScrollView>
             </View>
-            <View>
-              
-                    <DateTimePicker
-                        testID="dateTimePicker"
-                        value={date}
-                        mode={mode}
-                        is24Hour={true}
-                        display="default"
-                        onChange={onChange}
-                    />
-               
-            </View>
+
+            <ScrollView horizontal={false} contentContainerStyle={styles.scrollAlignment}>
+                <View style={{ width: '90%', flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <TextInput style={styles.DateInit} placeholder="25 Junho, 2020" />
+                    <TextInput style={styles.DateInit} placeholder="25 Setembro, 2020" />
+                </View>
+                <View style={styles.Chart}>
+                    <AnimatedGaugeProgress
+                        style={{ alignItems: 'center' }}
+                        size={300}
+                        width={14}
+                        fill={20}
+                        rotation={90}
+                        cropDegree={190}
+                        tintColor="#FF4800"
+                        delay={0}
+                        backgroundColor="#FFB600"
+                        stroke={[2, 2]} //For a equaly dashed line
+                        strokeCap="circle" >
+                        <View style={{ width: '50%', height: '30%', position: 'absolute', marginTop: 35, alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faWallet} size={40} color="#FF4800" />
+                            <Text style={styles.AmountSpend}>Valor Gasto</Text>
+                            <Text style={styles.Amount}>3.480,00</Text>
+                        </View>
+                    </AnimatedGaugeProgress>
+                </View>
+                <View style={{width:'100%', height:700}}>
+                    <BoxCategories name="Transporte" progress="50%" />
+                </View>
+            </ScrollView>
         </View>
     );
 }
