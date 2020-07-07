@@ -9,7 +9,7 @@ function Profile() {
 
     return (
         <View style={styles.DateInput}>
-
+            
         </View>
     );
 }

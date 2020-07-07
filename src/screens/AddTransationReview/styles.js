@@ -20,13 +20,21 @@ export default StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:'#FFF',
+        paddingTop:8,
         borderTopRightRadius:30,
         borderTopLeftRadius:30,
+    },
+
+
+    BoxTransactionDate:{
+        width:'100%',
+        height:20,
+        marginTop:10,
     },
     nextButtomText:{
         fontWeight:'bold',
         fontSize:15,
-        color:'#FFF',
+        color:'#FFF'
     },
     nextButton:{
         width:'70%',
@@ -36,7 +44,7 @@ export default StyleSheet.create({
         borderRadius:50,
         backgroundColor:'#FF5400'
     },
-    keyboardKeys:{
+    categoriesValues:{
         width:'90%',
         height:'80%',
         flexDirection:'row',

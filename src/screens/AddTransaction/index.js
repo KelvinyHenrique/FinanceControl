@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StatusBar, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Backspace from '../../assets/Images/tag.svg';
+import { useRoute, useNavigation } from '@react-navigation/native'; 
 
 
 export default function Cards() {
 
     const [pressValue, setPressValue] = useState('');
     const [displayValue, setDisplayValue] = useState('');
-
+    const navigation = useNavigation();
+    
     function handleKeyPress(number) {
         setDisplayValue(displayValue + number);
     }
 
+    const handleNextNavigation = () => {
+        navigation.navigate('AddTransationReview');
+    }
 
 
     return (
@@ -80,12 +86,12 @@ export default function Cards() {
                             <Text style={styles.keyText}>0</Text>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.KeyboardKey} onPress={() => setDisplayValue('0')} underlayColor="#e9ecef" >
-                            <Text style={styles.keyText}>...</Text>
+                            <Backspace width="35" height="35" style={styles.BackspaceIcon} />
                         </TouchableHighlight>
                     </View>
-                    <View style={styles.nextButton}>
+                    <TouchableHighlight style={styles.nextButton} underlayColor="#ff8500" onPress={handleNextNavigation}>
                         <Text style={styles.nextButtomText}>Adicionar Transação</Text>
-                    </View>
+                    </TouchableHighlight>
                 </View>
             </View>
         </View>
