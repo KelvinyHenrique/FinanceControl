@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StatusBar, TouchableHighlight } from 'react-native';
+import { Text, View, StatusBar, TouchableHighlight, Image } from 'react-native';
 import styles from './styles';
 import { TouchableOpacity, TextInput, ScrollView } from 'react-native-gesture-handler';
 import Backspace from '../../assets/Images/tag.svg';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import BoxCategoriesRounded from '../../components/boxCategoriesrRounded';
+
 
 export default function AddTransactionReview() {
 
@@ -83,13 +85,17 @@ export default function AddTransactionReview() {
                             <Text style={{ color: '#CECECE', fontSize: 16 }}>Data da transação</Text>
                             <View style={styles.BoxTransactionDate}>
                                 <TouchableOpacity style={{ justifyContent: 'center', width: '100%', height: '100%' }}>
-                                    <Text style={{ fontSize: 17, fontWeight: 'bold'}}>{selectedDate}</Text>
+                                    <Text style={{ fontSize: 17, fontWeight: 'bold' }}>{selectedDate}</Text>
                                 </TouchableOpacity>
-                                <View style={{ width: '100%', backgroundColor: '#CCC', height: 70, marginTop:20}}>
-                                    <ScrollView horizontal={true} contentContainerStyle={{alignItems:'center'}} showsHorizontalScrollIndicator={false}>
-                                        <View style={{ width: 50, height: 50, backgroundColor: '#000', marginLeft: 15, }}>
-
-                                        </View>
+                                <View style={{ width: '100%', height: 160, marginTop: 20 }}>
+                                <Text style={{ color: '#CECECE', fontSize: 16 }}>Categorias</Text>
+                                    <ScrollView horizontal={true} contentContainerStyle={{ alignItems: 'center' }} showsHorizontalScrollIndicator={false}>
+                                        <BoxCategoriesRounded bgColor="#2541b2"/>
+                                        <BoxCategoriesRounded bgColor="#f2bb05"/>
+                                        <BoxCategoriesRounded bgColor="#17c10a"/>
+                                        <BoxCategoriesRounded bgColor="#ff5714"/>
+                                        <BoxCategoriesRounded bgColor="#ab3428"/>
+                                        <BoxCategoriesRounded bgColor="#59cd90"/>
                                     </ScrollView>
                                 </View>
                             </View>
