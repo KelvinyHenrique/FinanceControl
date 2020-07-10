@@ -17,7 +17,11 @@ export default function Cards() {
     }
 
     const handleNextNavigation = () => {
-        navigation.navigate('AddTransationReview');
+
+        const mountantParsed = parseFloat(displayValue);
+        navigation.navigate('AddTransationReview', {
+            amount:mountantParsed
+        });
     }
 
 
@@ -80,7 +84,7 @@ export default function Cards() {
                             <Text style={styles.keyText}>9</Text>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.KeyboardKey} underlayColor="#e9ecef" >
-                            <Text style={styles.keyText}></Text>
+                            <Text style={styles.keyText}>,</Text>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.KeyboardKey} onPress={() => handleKeyPress('0')} underlayColor="#e9ecef" >
                             <Text style={styles.keyText}>0</Text>

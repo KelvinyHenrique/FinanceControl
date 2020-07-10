@@ -4,14 +4,14 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     boxTransaction:{
         width:'100%',
-        height:'40%',
+        height:'35%',
         backgroundColor:'#FF5400',
         alignItems:'center',
         justifyContent:'center',
     },
     keyboard:{
         width:'100%',
-        height:'60%',
+        height:'65%',
         backgroundColor:'#FF5400'
     },
     keyboardBox:{
