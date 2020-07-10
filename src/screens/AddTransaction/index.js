@@ -13,7 +13,15 @@ export default function Cards() {
     const navigation = useNavigation();
     
     function handleKeyPress(number) {
-        setDisplayValue(displayValue + number);
+
+        
+
+
+        if (displayValue === '0') {
+            setDisplayValue(number)
+        } else {
+            setDisplayValue(displayValue + number);
+        };
     }
 
     const handleNextNavigation = () => {
@@ -45,7 +53,7 @@ export default function Cards() {
                                 <Text style={{ color: '#FFF', fontWeight: 'bold' }}>R$</Text>
                             </View>
                             <View style={{ marginLeft: 8, }}>
-                                <Text style={styles.ValueTextAmmount}>{parseFloat(displayValue)}</Text>
+                                <Text style={styles.ValueTextAmmount}>{displayValue}</Text>
                             </View>
 
                         </View>
@@ -83,7 +91,7 @@ export default function Cards() {
                         <TouchableHighlight style={styles.KeyboardKey} onPress={() => handleKeyPress('9')} underlayColor="#e9ecef" >
                             <Text style={styles.keyText}>9</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight style={styles.KeyboardKey} underlayColor="#e9ecef" >
+                        <TouchableHighlight style={styles.KeyboardKey} onPress={() => handleKeyPress(',')}  underlayColor="#e9ecef" >
                             <Text style={styles.keyText}>,</Text>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.KeyboardKey} onPress={() => handleKeyPress('0')} underlayColor="#e9ecef" >
