@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { Text, View, StatusBar, Button, Animated, Dimensions, Easing, Image, TouchableHighlight, ScrollView } from 'react-native';
 import styles from './styles';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBell, faWallet, faMoneyBill, faBarcode, faSearchDollar, faArrowCircleDown, faArrowAltCircleUp, faHamburger } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faBell, faWallet, faMoneyBill, faBarcode, faSearchDollar, faArrowCircleDown, faArrowAltCircleUp, faHamburger } from '@fortawesome/free-solid-svg-icons';
 import profileImage from '../../assets/Images/profile.jpg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
