@@ -25,7 +25,11 @@ export default function Cards() {
     }
 
     const handleNextNavigation = () => {
-        navigation.navigate('AddTransationReview');
+
+        const mountantParsed = parseFloat(displayValue);
+        navigation.navigate('AddTransationReview', {
+            amount:mountantParsed
+        });
     }
 
 
